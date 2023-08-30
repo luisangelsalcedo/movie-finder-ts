@@ -1,10 +1,10 @@
 # Buscador de peliculas
 
+### [View DEMO](https://luisangelsalcedo.github.io/movie-finder-ts)
+
 ### API:
 
 - https://www.omdbapi.com
-- http://www.omdbapi.com/?apikey=5d10a0dd
-- https://www.omdbapi.com/?apikey=5d10a0dd&s=wandavision&type=series
 
 ### Requerimientos:
 
