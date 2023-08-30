@@ -1,0 +1,16 @@
+.movie-finder{
+    &__form{
+        margin-bottom: .1rem;
+        form{
+            display: flex;
+            input {
+                flex: 1;
+            }
+        }
+    }
+    &__response{
+        border-radius: .5rem;
+        padding: 1rem;
+        background-color: rgba($color: white, $alpha: 0.1);
+    }
+}

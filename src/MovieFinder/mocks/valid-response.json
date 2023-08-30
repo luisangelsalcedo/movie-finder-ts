@@ -1,0 +1,27 @@
+{
+    "Search": [
+        {
+            "Title": "WandaVision",
+            "Year": "2021",
+            "imdbID": "tt9140560",
+            "Type": "series",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BZGEwYmMwZmMtMTQ3MS00YWNhLWEwMmQtZTU5YTIwZmJjZGQ0XkEyXkFqcGdeQXVyMTI5MzA5MjA1._V1_SX300.jpg"
+        },
+        {
+            "Title": "Blind Wave: WandaVision Reaction",
+            "Year": "2021",
+            "imdbID": "tt13859218",
+            "Type": "series",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BNmM2OGEyYTItYWVmZi00MzY0LWI4ZjItZTI4OGU3MTgwNGJiXkEyXkFqcGdeQXVyMTExMTAxNjA2._V1_SX300.jpg"
+        },
+        {
+            "Title": "Sleepy Waffles: WandaVision Series Reaction",
+            "Year": "2020–2021",
+            "imdbID": "tt23862228",
+            "Type": "series",
+            "Poster": "N/A"
+        }
+    ],
+    "totalResults": "3",
+    "Response": "True"
+}
