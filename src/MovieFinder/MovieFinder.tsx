@@ -8,13 +8,26 @@ export function MovieFinder(): JSX.Element {
   const [movies, setMovies] = useState<MovieMapper[]>([]);
   const [query, setQuery] = useState('');
 
-  useEffect(() => {
-    searchMoviesService('perros')
+  const searchMovie = (query: string): void => {
+    searchMoviesService(query)
       .then(data => {
         setMovies(data);
       })
       .catch(err => new Error(err));
+  };
+
+  useEffect(() => {
+    searchMovie(query);
   }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      searchMovie(query);
+    }, 500);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [query]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setQuery(e.target.value);
@@ -22,7 +35,7 @@ export function MovieFinder(): JSX.Element {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    console.log('search:', query);
+    searchMovie(query);
   };
 
   return (
@@ -39,9 +52,13 @@ export function MovieFinder(): JSX.Element {
         </form>
       </section>
       <section className='movie-finder__response'>
-        {movies.map(({ title, id }) => (
-          <div key={id}>{title}</div>
-        ))}
+        {movies.length
+          ? movies.map(({ title, id, year }) => (
+              <div key={id}>
+                ({year}) {title}
+              </div>
+            ))
+          : 'No hay resultados'}
       </section>
     </main>
   );
