@@ -6,6 +6,7 @@ import './MovieFinder.scss';
 
 export function MovieFinder(): JSX.Element {
   const [movies, setMovies] = useState<MovieMapper[]>([]);
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
     const movieResponse: APIResponse = apiResponse;
@@ -17,14 +18,24 @@ export function MovieFinder(): JSX.Element {
     }
   }, []);
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setQuery(e.target.value);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    console.log('search:', query);
+  };
+
   return (
     <main className='movie-finder'>
       <section className='movie-finder__form'>
-        <form>
+        <form onSubmit={handleSubmit}>
           <input
             type='text'
             name='movieTitle'
             placeholder='Avengers, Momento, Spiderman...'
+            onChange={handleChange}
           />
           <button type='submit'>Search</button>
         </form>
