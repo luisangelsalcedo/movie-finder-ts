@@ -1,7 +1,7 @@
-import apiResponse from './mocks/valid-response.json';
+// import apiResponse from './mocks/valid-response.json';
 import { useEffect, useState } from 'react';
-import type { APIResponse, MovieMapper } from './types';
-import { movieListToMovieMapperList } from './mappers/MovieMapper';
+import type { MovieMapper } from './types';
+import { searchMoviesService } from './services/movieService';
 import './MovieFinder.scss';
 
 export function MovieFinder(): JSX.Element {
@@ -9,13 +9,11 @@ export function MovieFinder(): JSX.Element {
   const [query, setQuery] = useState('');
 
   useEffect(() => {
-    const movieResponse: APIResponse = apiResponse;
-    if (movieResponse?.Search) {
-      const moviesMapper: MovieMapper[] = movieListToMovieMapperList(
-        movieResponse.Search
-      );
-      setMovies(moviesMapper);
-    }
+    searchMoviesService('perros')
+      .then(data => {
+        setMovies(data);
+      })
+      .catch(err => new Error(err));
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
